@@ -9,6 +9,8 @@ def save_sp500_tickers():
     tickers = []
     for row in table.findAll('tr')[1:]:
         ticker = row.findAll('td')[1].text
+        mapping = str.maketrans(".","-")
+        ticker = ticker.translate(mapping)
         tickers.append(ticker)
 
     with open("sp500tickers.pickle", "wb") as f:
