@@ -20,5 +20,5 @@ def is_target_stock(ticker, positive_growth_required, negative_growth_required, 
     return((sum(df['is_short_day'] & (df['Date'].dt.date != end)) == (len(df) - 1)) & \
         (df.loc[df['Date'].dt.date == end, 'growth'].values[0] >= positive_growth_required))
 
-stocks = ['TSLA', 'TVIX', 'HEAR']
+#stocks = ['TSLA', 'TVIX', 'HEAR']
 [stock for stock in stocks if is_target_stock(stock, positive_growth_required, negative_growth_required, num_days)]
